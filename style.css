@@ -1,0 +1,310 @@
+/* =========================
+   BASE / FONDO GLOBAL
+   ========================= */
+body {
+  font-family: "Outfit", sans-serif;
+  color: #222;
+  margin: 0;
+  padding: 0;
+
+  /* Fondo global */
+  background-image: url("/img/etica4.jpg"); /* ← ajusta la ruta si es necesario */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Overlay para mejorar lectura sobre el fondo */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;              /* top:0 right:0 bottom:0 left:0 */
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: -1;           /* detrás de todo el contenido */
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #BD574E;
+  border-bottom: 1px solid #e0d4c8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.navbar .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #f3e7e7;
+}
+
+.navbar nav a {
+  margin-left: 1em;
+  text-decoration: none;
+  color: #ece1d5;
+  transition: 0.3s;
+}
+
+.navbar nav a:hover {
+  color: #ba5c4f;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+   ========================= */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  padding: 6em 1.5em 2.5em 1.5em;
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* =========================
+   INTRO
+   ========================= */
+.intro {
+  flex: 1 1 60%;
+  padding-right: 1em;
+  text-align: justify;
+}
+
+.intro h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+
+.intro p {
+  line-height: 1.7;
+  margin-bottom: 1.5em;
+}
+
+.buttons {
+  display: flex;
+  gap: 1em;
+}
+
+.btn {
+  padding: 0.6em 1.5em;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #000;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.primary { background-color: #000; color: #fff; }
+.primary:hover { background-color: #333; }
+
+.secondary { background-color: #fff; color: #000; }
+.secondary:hover { background-color: #eee4da; }
+
+/* =========================
+   TARJETAS GENERALES
+   ========================= */
+.cards {
+  flex: 1 1 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  text-align: justify;
+}
+
+.card {
+  background-color: #f3e4d9;
+  border: 1px solid #e0d4c8;
+  border-radius: 16px;
+  padding: 1.5em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card h3 { margin-top: 0; color: #8d7c6e; }
+.card ul { padding-left: 1.2em; margin-top: 0.5em; }
+.card li { margin-bottom: 0.8em; }
+
+/* Tarjeta secundaria */
+.card-1 {
+  font-size: 0.95em;
+  background-color: #f5f1ee;
+  color: #333;
+  padding: 1.5em;
+  border-radius: 16px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  text-align: justify;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ---------- VALORES: card + layout lado a lado ---------- */
+.card.card-valores{
+  background-color:#f5eae3;
+  border:1px solid #e0d4c8;
+  border-radius:16px;
+  padding:2em;
+  box-shadow:0 4px 8px rgba(0,0,0,0.05);
+  width:100%;
+  box-sizing:border-box;
+}
+
+.valores-layout{
+  display:flex;
+  align-items:flex-start;         /* texto e imagen a la misma altura */
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:nowrap;               /* para que no salte la imagen abajo en desktop */
+}
+
+.valores-texto{ flex:1 1 60%; }
+
+.valores-img{
+  flex:0 0 360px;                 /* ancho fijo del bloque de imagen */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.valores-img img{
+  width:100%;
+  max-width:360px;                /* tamaño de la imagen */
+  height:auto;
+  border-radius:16px;
+  object-fit:contain;
+  box-shadow:0 2px 12px rgba(0,0,0,0.1);
+}
+
+/* Responsive: apilar en pantallas pequeñas */
+@media (max-width: 900px){
+  .valores-layout{ flex-wrap:wrap; }
+  .valores-img{ flex:1 1 100%; }
+  .valores-img img{ max-width:100%; }
+}
+
+/* =========================
+   SUMMARY CARDS
+   ========================= */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+  margin-top: 2.5em;
+}
+
+.summary-card {
+  background-color: #f5e6e3;
+  border: 1px solid #e2cfcf;
+  border-radius: 16px;
+  padding: 1.5em;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+.summary-card:hover { transform: translateY(-5px); }
+.summary-card h4 { margin-top: 0; color: #7b4b47; font-size: 1.1em; }
+.summary-card p  { color: #333; line-height: 1.5; }
+
+/* =========================
+   STATS SECTION
+   ========================= */
+.stats-section {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.stat-card {
+  background-color: #fff;
+  border: 1.5px solid #d9d9d9;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-banner {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.stat-banner:hover { transform: scale(1.03); }
+
+.stat-content { padding: 1.5em; width: 100%; text-align: center; }
+.stat-content h2 { font-size: 1.8em; margin: 0; color: #000; }
+.stat-content p  { font-size: 0.95em; margin-top: 0.5em; color: #444; line-height: 1.4; }
+
+.stat-image-bottom {
+  width: 100%;
+  height: auto;
+  margin-top: 1em;
+  border-radius: 0 0 16px 16px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+.stat-image-bottom:hover { transform: scale(1.03); }
+
+/* =========================
+   FOOTER
+   ========================= */
+.footer {
+  background-color: #fff3e8;
+  text-align: center;
+  padding: 2em;
+  border-top: 1px solid #e0d4c8;
+  margin-top: 2em;
+  font-size: 0.95em;
+  color: #333;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+  .main-container { flex-direction: column; }
+  .intro, .cards { flex: 1 1 100%; }
+  .buttons { flex-direction: column; align-items: flex-start; }
+  .stats-section { align-items: center; }
+  .stat-card { max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; align-items: flex-start; padding: 1em; }
+  .navbar nav { display: flex; flex-wrap: wrap; gap: 1em; margin-top: 0.5em; }
+
+  .intro { padding: 1em; }
+
+  /* Valores: apilar texto e imagen */
+  .card-valores .valores-layout { flex-direction: column; }
+  .valores-img { flex: 1 1 100%; }
+  .valores-img img { max-width: 100%; }
+
+  .summary-cards, .cards { grid-template-columns: 1fr !important; }
+  .buttons { flex-direction: column; width: 100%; }
+  .btn { width: 100%; text-align: center; }
+  .stat-content h2 { font-size: 1.5em; }
+}
+
+@media (max-width: 480px) {
+  .logo { font-size: 1.2em; }
+  .navbar nav a { font-size: 0.95em; }
+  .summary-card h4, .card h3 { font-size: 1em; }
+  .summary-card p, .card p, .card ul li, .stat-content p { font-size: 0.9em; }
+}
+

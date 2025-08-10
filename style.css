@@ -8,8 +8,7 @@ body {
   padding: 0;
 
   /* Fondo global */
-  background-image: url("/img/etica4.jpg"); /* ← ajusta la ruta si es necesario */
-  background-size: cover;
+  background-image: url("img/etica4.jpg"); 
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -307,4 +306,5 @@ body::before {
   .summary-card h4, .card h3 { font-size: 1em; }
   .summary-card p, .card p, .card ul li, .stat-content p { font-size: 0.9em; }
 }
+
 

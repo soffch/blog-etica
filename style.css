@@ -1,20 +1,21 @@
 /* =========================
    BASE / FONDO GLOBAL
    ========================= */
-body {
+bbody {
   font-family: "Outfit", sans-serif;
   color: #222;
   margin: 0;
   padding: 0;
 
   /* Fondo global */
-  background-image: url("img/etica4.jpg"); 
+  background-image: url("img/etica4.jpg"); /* ← ajusta la ruta si es necesario */
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
 
-/* Overlay para mejorar lectura sobre el fondo */
+
 body::before {
   content: "";
   position: fixed;
@@ -22,7 +23,6 @@ body::before {
   background-color: rgba(255, 255, 255, 0.7);
   z-index: -1;           /* detrás de todo el contenido */
 }
-
 /* =========================
    NAVBAR
    ========================= */
@@ -306,5 +306,6 @@ body::before {
   .summary-card h4, .card h3 { font-size: 1em; }
   .summary-card p, .card p, .card ul li, .stat-content p { font-size: 0.9em; }
 }
+
 
 

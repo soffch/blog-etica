@@ -3,26 +3,25 @@
    ========================= */
 body {
   font-family: "Outfit", sans-serif;
-  color: #222;
+  background-image: url("img/etica4.jpg"); 
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
   margin: 0;
   padding: 0;
-    min-height: 100vh;
-
-  /* Fondo global */
-  background-image: url("img/etica4.jpg"); /* ← ajusta la ruta si es necesario */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
 }
 
-
+/* Overlay para mejorar la lectura del texto */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;              /* top:0 right:0 bottom:0 left:0 */
-  background-color: rgba(255, 255, 255, 0.7);
-  z-index: -1;           /* detrás de todo el contenido */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.7); /* Capa semitransparente */
+  z-index: -1;
 }
 /* =========================
    NAVBAR
@@ -307,6 +306,7 @@ body::before {
   .summary-card h4, .card h3 { font-size: 1em; }
   .summary-card p, .card p, .card ul li, .stat-content p { font-size: 0.9em; }
 }
+
 
 
 
